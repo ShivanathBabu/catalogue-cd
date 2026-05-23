@@ -37,6 +37,8 @@ pipeline {
                             --name Roboshop-env
 
                             kubectl get nodes
+                            sed -i "s/IMAGE_Version/${params.appversion}/g" values-${params.deploy_to}.yaml
+                            helm upgrade --install $COMPONENT -f values-${params.deploy_to}.yaml
                         
                         """
                     }
