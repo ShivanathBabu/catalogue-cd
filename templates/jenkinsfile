@@ -34,7 +34,7 @@ pipeline {
 
                             aws eks update-kubeconfig \
                             --region us-east-1 \
-                            --name roboshop-env
+                            --name Roboshop-env
 
                             kubectl get nodes
                         
