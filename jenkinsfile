@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script{
                     def deploymentstatus = sh(returnStdout: true, script: "kubectl rollout status deployment/catalogue --request-timeout=30s -n $PROJECT || echo FAILED").trim()
-                    if (deploymentstatus.contains(successfully rolled out)) {
+                    if (deploymentstatus.contains("successfully rolled out")) {
                         echo "Deployment is success"
                         
                     } else {
@@ -59,7 +59,7 @@ pipeline {
                             sleep 20
                         """
                         def rollbackstatus = sh(returnStdout: true, script: "kubectl rollout status deployment/catalogue --request-timeout=30s -n $PROJECT || echo FAILED").trim()
-                        if (rollbackstatus.contains(successfully rolled out)) {
+                        if (rollbackstatus.contains("successfully rolled out")) {
                             error "Deployment is Failure, Rollback Success"
                         }
                         else {
