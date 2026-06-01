@@ -1,6 +1,6 @@
 deployment:
-  imageURL: shivanathbabu/catalogue
-  imageVersion: IMAGE_Version
+  imageURL: 506572015597.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue
+  imageVersion: 1.0.0
 hpa:
   maxReplicas: 10
   Utilization: 75
