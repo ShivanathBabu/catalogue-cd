@@ -23,6 +23,15 @@ pipeline {
     }
 
     stages {
+
+        stage('Debug Params') {
+    steps {
+        script {
+            echo "appVersion = ${params.appVersion}"
+            echo "deploy_to = ${params.deploy_to}"
+        }
+    }
+}
         stage ('Deploy') {
             steps {
                 script {
